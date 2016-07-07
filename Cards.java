@@ -1,27 +1,38 @@
-class Cards1 {
+class Compare {
 	
 	int[] value = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-	
-	public String getSuit(int sequence) {
-		String[] suite = {"CLUBS", "DIAMONDS", "HEARTS", "SPADES"};
-		return suite[sequence / 13];
+	String[] suit = {"CLUBS", "DIAMONDS", "HEARTS", "SPADES"};
+	char[] pip = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 't', 'J', 'Q', 'K'};
+	public int getSuit(int sequence) {
+		return sequence / 13;
 	}
-	public char getPip(int sequence) {
-		char[] pip = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 't', 'J', 'Q', 'K'};
-		return pip[sequence % 13];
+	public int getPip(int sequence) {
+		return sequence % 13;
 	}
+	public int compare(int seq1, int seq2){
+		if( getPip(seq1) > getPip(seq2) )
+			return seq1;
+		else if( getPip(seq1) < getPip(seq2))
+			return seq2;
+		else{
+			if( getSuit(seq1) > getSuit(seq2) )
+				return seq1;
+			else if( getSuit(seq1) < getSuit(seq2))
+				return seq2;
+			else
+				return -1;
+		}	
 	
-	//public static char cardGeneration() {
-	//	int randnum;
-	//	randnum = 1 + (int)(Math.random() * 13);
-		//return pip[randnum];
-	//}
+	
+	}
 }
 public class Cards {
 	public static void main(String[] args) {
-		int sequence = 43;
-		Cards1 c = new Cards1();
-		System.out.println(c.getSuit(sequence));
-		System.out.println(c.getPip(sequence));
+		int seq1 = 43;
+		int seq2 = 47;
+		Compare c = new Compare();
+		System.out.println(c.getSuit(seq1));
+		System.out.println(c.getPip(seq2));
+		System.out.println(c.compare(seq1,seq2));
 	}
 }
