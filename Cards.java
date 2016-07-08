@@ -31,7 +31,11 @@ class Compare {
    	 public ArrayList<Integer> sortedHand( ArrayList<Integer> hand) {
     		Collections.sort(hand);
       	 return hand;
-    }
+    	 }
+	 public void shuffle(ArrayList<Cards> cards){
+    	
+     		Collections.shuffle(cards);
+    	 }
 }
 public class Cards {
 	public static void main(String[] args) {
@@ -41,6 +45,7 @@ public class Cards {
 		hand.add(5);
 		hand.add(9);
 		hand.add(10);
+		hand.add(20);
 		Compare c = new Compare();
 		System.out.println(c.getSuit(seq1));
 		System.out.println(c.getPip(seq2));
