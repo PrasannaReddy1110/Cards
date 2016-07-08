@@ -44,9 +44,15 @@ public ArrayList<Integer> sortedHand(ArrayList<Integer> hand) {
  	         Collections.sort(hand);
  	   return hand;
 	 }
-public boolean findLife(ArrayList<Integer> hand){
-	return true;
-}
+
+public int findLife(ArrayList<Integer> hand) {
+	int count=0;
+	for (int i = 0; i < hand.size() - 1 ; i++) {        
+			if(hand.get(i)+1==hand.get(i+1) && (hand.get(i)/13 == hand.get(i+1) / 13))
+			++count;
+	}	       
+	return count + 1;
+ }
 public int findSet(ArrayList<Integer> hand) {
 	int count=0;
        for (int i = 0; i < hand.size(); i++) {
@@ -70,9 +76,13 @@ public class Cards {
 		int seq2 = 47;
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		hand.add(2);
+		hand.add(3);
+		hand.add(4);
 		hand.add(5);
-		hand.add(38);
-		hand.add(42);
+		hand.add(6);
+		hand.add(7);
+		hand.add(14);
+		hand.add(25);
 		Card c = new Card();
 		
 		Rummy r  = new Rummy();
@@ -81,5 +91,6 @@ public class Cards {
 		//System.out.println(c.compare(seq1,seq2));
 		System.out.println(r.sortedHand(hand));
 		System.out.println(r.findSet(hand));
+		System.out.println(r.findLife(hand));
 	}
 }
