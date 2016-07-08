@@ -37,10 +37,16 @@ class Card {
  	 }
  	 public void dropCard(int i){
  	 }
- 	 public ArrayList<Integer> sortedHand( ArrayList<Integer> hand) {
+ 	 
+}
+class Rummy{
+public ArrayList<Integer> sortedHand(ArrayList<Integer> hand) {
  	         Collections.sort(hand);
  	   return hand;
- 	 }
+	 }
+public boolean findLife(ArrayList<Integer> hand){
+	return true;
+}
 }
 
 public class Cards {
@@ -53,10 +59,11 @@ public class Cards {
 		hand.add(10);
 		hand.add(20);
 		Card c = new Card();
-		Player p  = new Player();
+		
+		Rummy r  = new Rummy();
 		System.out.println(c.getSuit(seq1));
 		System.out.println(c.getPip(seq2));
 		System.out.println(c.compare(seq1,seq2));
-		System.out.println(p.sortedHand(hand));
+		System.out.println(r.sortedHand(hand));
 	}
 }
